@@ -1,0 +1,116 @@
+\documentclass[12pt,a4j]{jarticle}
+\usepackage[dvipdfm]{graphicx}
+\usepackage{musixtex}
+\usepackage{url}
+\begin{document}
+\title{事前課題}
+\maketitle
+\section{(1)  RC 直列回路（図 1.1）の過渡応答について考える。 
+$R$ = 15kΩ、$C$ = 0.01μF  とした場合の時定数$τ$を求める。 
+時定数τの単位[s]となる理由を説明する。}
+\cite{a}より
+\begin{eqnarray}
+  \label{t}
+τ=RC
+\end{eqnarray}
+が成り立つのでそれぞれ$R$,$C$の値を代入する。$C$ = 0.01μF = $10^{-8}$\,F,$R$ = 15kΩ = 15000Ω
+\begin{eqnarray}
+  τ=15000Ω\times10^{-8}=1.5\times10^{-4}\,[s]
+\end{eqnarray}
+時定数τの単位[s]となる理由は,オームの法則より,抵抗$R$と,抵抗$R$にかかる電圧$v$,抵抗$R$に流れる電流$i$の関係は
+\begin{eqnarray}
+  \label{Ω}
+  R=\frac{v}{i}
+\end{eqnarray}
+コンデンサ$C$に蓄えられる電荷$q$とコンデンサにかかる電圧$v$とコンデンサの静電容量$C$の関係は
+
+\begin{eqnarray}
+  \label{q}
+  q=Cv
+\end{eqnarray}
+(\ref{q})を整理して
+\begin{eqnarray}
+  \label{q1}
+  C=\frac{q}{v}
+\end{eqnarray}
+コンデンサ$C$に蓄えられる電荷$q$とコンデンサに流れる電流$i$の関係は
+\begin{eqnarray}
+  \label{i}
+  i=\frac{dq}{dt}
+\end{eqnarray}
+(\ref{i})を整理して
+\begin{eqnarray}
+  \label{i1}
+  q=\int{idt}
+\end{eqnarray}
+(\ref{i1})を(\ref{q1})に代入して
+\begin{eqnarray}
+  \label{qi}
+  C=\frac{\int{idt}}{v}
+\end{eqnarray}
+が成り立つ。
+(\ref{Ω})と(\ref{qi}),そして(\ref{t})をそれぞれ単位に変換すると
+\begin{eqnarray}
+  \label{Ω1}
+  [Ω]=\frac{[V]}{[A]}
+\end{eqnarray}
+\begin{eqnarray}
+  \label{qi1}
+  [F]=\frac{[A][s]}{[V]}
+\end{eqnarray}
+\begin{eqnarray}
+  \label{t1}
+  時定数τの単位=[F]\times[Ω]
+\end{eqnarray}
+(\ref{t1})に(\ref{Ω1})と(\ref{qi1})を代入すると時定数τの単位は[s]となる。
+ 
+\section{(2)  ローパスフィルタ（図 1.1）について調べ、動作原理や用途について説明する。 
+$R$ = 15kΩ、$C$ = 0.01μF  とした場合のカットオフ周波数  fc  およびカットオフ周波数時の利得 
+[dβ]、位相角[deg]について求める。}
+ローパスフィルタは入力信号に並行する抵抗と入力信号に直列するコンデンサを接続することによって電流の低周波を通過させ高周波をカットするフィルタ回路である.ノイズの除去や音声の高周波の除去,アナログデジタル変換時のアンチエイリアスフィルタに使用される.
+回路のインピーダンスが周波数によって変化することにより,出力信号の振幅と位相が変化するため,フィルタとして動作する.
+$R$ = 15kΩ、$C$ = 0.01μF  とした場合のカットオフ周波数  fc  およびカットオフ周波数時の利得 [dβ],位相角[deg]について求める.
+電圧伝達関数は\cite{a}より
+\begin{eqnarray}
+  \label{2l}
+  \frac{V_0}{V_1}=\frac{1}{1+jwRC}
+\end{eqnarray}
+(\ref{2l})を絶対値,逆正弦関数で表すと利得と位相角が得られる.式にすると
+\begin{eqnarray}
+  \label{2l1}
+  |\frac{V_0}{V_1}|=\frac{1}{\sqrt{1+(jwRC)^2}}
+\end{eqnarray}
+\begin{eqnarray}
+  \label{2l2}
+  \angle\frac{V_0}{V_1}=\tan^{-1}(-wCR)
+\end{eqnarray}
+カットオフ周波数は\cite{a}より
+\begin{eqnarray}
+  \label{2la}
+  |\frac{V_0}{V_1}|=\frac{1}{\sqrt{2}}
+\end{eqnarray}
+もしくは入力電圧の位相は-45°とされる周波数であり\cite{a}より
+\begin{eqnarray}
+  \label{2lb}
+  f_c = \frac{1}{2\pi{RC}}
+\end{eqnarray}
+ よって
+ \begin{eqnarray}
+  \label{2lc}
+  f_c = \frac{1}{2\pi\times{15}\times{10^3}\times{0.01}\times{10^{-6}}}
+\end{eqnarray}
+
+よって利得は-3db,位相角は-45°となる.
+
+\section{(3)  ハイパスフィルタ（図 1.2）について調べ、動作原理や用途について説明する。 
+$R$ = 15kΩ、$C$ = 0.01μF  とした場合のカットオフ周波数  fc  およびカットオフ周波数時の利得 
+[dβ]、位相角[deg]について求める。}
+ハイパスフィルタは,入力信号に並行する抵抗と入力信号に直列するコンデンサを接続することによって電流の高周波を通過させ低周波をカットするフィルタ回路である.ローパスフィルタとは対象になる.こちらもノイズの除去や音声の低周波の除去に使用される.
+カットオフ周波数はローパスフィルタのときと同等なので利得は-3db,位相角は-45°となる.
+
+\section{参考文献}
+\begin{thebibliography}{9}
+  \bibitem{a} 電気通信大学『アナログ回路実験』2023年,p1$\sim$3
+  \bibitem{b}analogDialog, https://www.analog.com/jp/analog-dialogue/studentzone/studentzone-october-2018.html,「ADALM1000」で、SMUの基本を学ぶトピック10：ローパス・フィルタとハイパス・フィルタ
+\end{thebibliography}
+\end{document}
